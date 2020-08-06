@@ -9,19 +9,29 @@ export default function Home({ data }) {
       <SEO title="home" />
       <h1>My WordPress Blog</h1>
       <h4>Posts</h4>
-      {data.allWordpressPost.edges.map(({ node }) => (
-        <div key={node.slug}>
+      {data.allWcProducts.edges.map(({ node }) => (
+        <div key={node.id}>
+          <img src={node.images[0].src} />
+          <Link to={node.slug}>
+            <p>{node.name}</p>
+          </Link>
+          <p >{node.name}</p>
+          <p >{node.slug}</p>
+          <p >{node.regular_price}</p>
+          <p >{node.sale_price}</p>
           <Link to={node.slug}>
             <p>{node.title}</p>
           </Link>
-          <div dangerouslySetInnerHTML={{ __html: node.excerpt }} />
+
         </div>
       ))}
+
+
     </Layout>
   )
 }
 
-export const pageQuery = graphql`
+{/*export const pageQuery = graphql`
   query {
     allWordpressPost(sort: { fields: [date] }) {
       edges {
@@ -33,4 +43,27 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`*/}
+
+export const pageQuery = graphql`
+query {
+    allWcProducts {
+      edges {
+        node {
+          id
+          name
+          sale_price
+          price
+          images {
+            id
+            src
+          }
+          regular_price
+          short_description
+          sku
+          slug
+        }
+      }
+    }
+  
+  }`  

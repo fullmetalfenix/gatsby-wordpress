@@ -1,0 +1,12 @@
+query MyQuery {
+  wcProducts {
+    id
+    regular_price
+    sale_price
+    images {
+      id
+      src
+      alt
+    }
+  }
+}

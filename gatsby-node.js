@@ -29,3 +29,43 @@ exports.createPages = ({ graphql, actions }) => {
     })
   })
 }
+
+
+
+exports.createPages = ({ graphql, actions }) => {
+  const { createPage } = actions
+  return graphql(`
+    {
+      allWcProducts {
+        edges {
+          node {
+            id
+            name
+            sale_price
+            price
+            images {
+              id
+              src
+            }
+            regular_price
+            short_description
+            sku
+            slug
+          }
+        }
+      }
+        }
+  `).then(result => {
+    result.data.allWcProducts.edges.forEach(({ node }) => {
+      createPage({
+        path: node.slug,
+        component: path.resolve(`./src/templates/products.js`),
+        context: {
+          // This is the $slug variable
+          // passed to blog-post.js
+          slug: node.slug,
+        },
+      })
+    })
+  })
+}

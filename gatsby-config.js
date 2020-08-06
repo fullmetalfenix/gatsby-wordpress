@@ -10,6 +10,21 @@ module.exports = {
      * Gatsby's data processing layer begins with “source”
      * plugins. Here the site sources its data from WordPress.
      */
+    {
+      resolve: "@pasdo501/gatsby-source-woocommerce",
+      options: {
+        // Base URL of WordPress site
+        api: 'localhost/gatsbywp/wordpress/',
+        // true if using https. false otherwise.
+        https: false,
+        api_keys: {
+          consumer_key: `ck_8928c6db9228bb4d5f3353a4ebe17ec8d8faa73c`,
+          consumer_secret: `cs_d3d7950f72aae4112f93a572cb7fe17b06ae2bb1`,
+        },
+        // Array of strings with fields you'd like to create nodes for...
+        fields: ['products', 'products/categories', 'products/attributes'],
+      }
+    },
 
     {
       resolve: `gatsby-source-wordpress`,
