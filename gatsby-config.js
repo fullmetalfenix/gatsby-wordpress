@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby WordPress Tutorial`,
-    description: `An example to learn how to source data from WordPress.`,
-    author: `@gatsbyjs`,
+    title: `Woocommerce Template`,
+    description: `Site description goes here`,
+    author: `github.com/fullmetalfenix`,
   },
   plugins: [
     // https://public-api.wordpress.com/wp/v2/sites/gatsbyjsexamplewordpress.wordpress.com/pages/
@@ -18,6 +18,7 @@ module.exports = {
         // true if using https. false otherwise.
         https: false,
         api_keys: {
+          // Local dev keys, not live so I'll put them here for now
           consumer_key: `ck_8928c6db9228bb4d5f3353a4ebe17ec8d8faa73c`,
           consumer_secret: `cs_d3d7950f72aae4112f93a572cb7fe17b06ae2bb1`,
         },
