@@ -7,7 +7,7 @@ import SEO from "../components/seo"
 
 type DataProps = {
   site: {
-    buildTime: string
+    buildTime: string 
   }
 } 
 
