@@ -9,7 +9,7 @@ type DataProps = {
   site: {
     buildTime: string
   }
-}
+} 
 
 const UsingTypescript: React.FC<PageProps<DataProps>> = ({ data, path }) => (
   <Layout>
