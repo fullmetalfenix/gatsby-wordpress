@@ -7,19 +7,19 @@ export default function Home({ data }) {
   return (
     <Layout>
       <SEO title="home" />
-      <h1>Products</h1>
+      <h1 className="home-heading"> Products!</h1>
       {data.allWcProducts.edges.map(({ node }) => (
         <div className="home-product-container" key={node.id}>
           <img className="home-products-images" alt="product " src={node.images[0].src} />
           <div className="home-products-details">
-            <Link to={node.slug}>
-              <p>{node.name}</p>
+            <Link to={node.slug} >
+              <p className="home-product-name" >{node.name}</p>
             </Link>
             <div className="home-product-prices-container">
               <p className="home-regular-price">${node.regular_price}</p>
-              <p className="home-sale-price">${node.sale_price}</p>
+              <p className="home-sale-price">${node.sale_price}!</p>
             </div>
-            <Link to={node.slug}>
+            <Link className="home-product-button-link" to={node.slug}>
               <button>Check It Out</button>
             </Link>  
           </div>

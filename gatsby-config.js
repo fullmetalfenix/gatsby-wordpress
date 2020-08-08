@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Woocommerce Template`,
+    title: `Gatsby Woocommerce Template`,
     description: `Woocommerce site description goes here`,
     author: `github.com/fullmetalfenix`,
   },
