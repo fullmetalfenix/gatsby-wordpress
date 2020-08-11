@@ -7,9 +7,19 @@ export default function BlogPost({ data }) {
   console.log(product)
   return (
     <Layout>
-      <div>
-        <h1>{product.name}</h1>
-        <div dangerouslySetInnerHTML={{ __html: product.regular_price }} />
+      <div className="pp-container">
+        <img alt={product.images[0].src} src={product.images[0].src} />
+        <div className="pp-product-info">
+          <h2>{product.name}</h2>
+          <div>
+            <p className="pp-reg">{product.regular_price}</p>
+            <p className="pp-sale">${product.sale_price}!</p>
+            </div>
+        </div>
+        {/*<p></p>{product.short_description.slice(3).slice(0, -5)}*/}
+        <p className="pp-desc">{product.description.slice(3).slice(0, -5)}</p>
+
+        <button className="pp-atc">Add To Cart</button>
       </div>
     </Layout>
   )
@@ -31,6 +41,7 @@ query {
         short_description
         sku
         slug
+        description
       }
     }
   }
