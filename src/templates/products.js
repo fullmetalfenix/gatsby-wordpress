@@ -5,6 +5,12 @@ import { graphql } from "gatsby"
 export default function BlogPost({ data }) {
   const product = data.allWcProducts.edges[0].node
   console.log(product)
+  function addProductToCart(){
+    fetch(`../wp-json/cocart/v1/add-item?product_id=10`, {"method": "POST"}) 
+    .then(x => x.json)
+    .then(response => console.log(response))
+  }
+
   return (
     <Layout>
       <div className="pp-container">
@@ -18,8 +24,8 @@ export default function BlogPost({ data }) {
         </div>
         {/*<p></p>{product.short_description.slice(3).slice(0, -5)}*/}
         <p className="pp-desc">{product.description.slice(3).slice(0, -5)}</p>
-
-        <button className="pp-atc">Add To Cart</button>
+        <h1>{product.related_ids}</h1>
+        <button className="pp-atc" onClick={addProductToCart}>Add To Cart</button>
       </div>
     </Layout>
   )
@@ -42,6 +48,7 @@ query {
         sku
         slug
         description
+        related_ids
       }
     }
   }

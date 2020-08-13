@@ -9,6 +9,7 @@ export default function Home({ data }) {
       <SEO title="home" />
       <h1 className="home-heading"> Products!</h1>
       {data.allWcProducts.edges.map(({ node }) => (
+        
         <div className="home-product-container" key={node.id}>
           <img className="home-products-images" alt="product " src={node.images[0].src} />
           <div className="home-products-details">
@@ -19,7 +20,7 @@ export default function Home({ data }) {
               <p className="home-regular-price">${node.regular_price}</p>
               <p className="home-sale-price">${node.sale_price}!</p>
             </div>
-            <Link className="home-product-button-link" to={node.slug}>
+            <Link className="home-product-button-link" href={`http://localhost/gatsbywp/wordpress/public/${node.slug}`}>
               <button>Check It Out</button>
             </Link>  
           </div>
